@@ -1,0 +1,263 @@
+*{
+    padding: 0px 0px;
+    margin: 0px 0px;
+    box-sizing: border-box;
+}
+
+.game-container {
+    width: 100vw;
+    height: 100vh;
+    background: url("./Graphics/background.png") no-repeat fixed center center;
+    background-size: cover;
+}
+
+/* for pump */
+
+.pump-container {
+    position: absolute;
+    bottom:0%;
+    right: 0%;
+    display: flex;
+    height: 40%;
+    margin-bottom: 3%;
+    margin-right: 3%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    /* background-color: #8b4513; */
+}
+.pump-handle{
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    /* background-color: greenyellow; */
+    padding-right: 5%;
+    z-index: 1;
+}
+.pump-handle-img {
+    position: relative;
+    top: 40%;
+    padding-right: 5%;
+    /* background-color: red; */
+    transition: transform 0.5s ease-out;
+    z-index: 1;
+}
+.pump-handle-img{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.pump-body{
+    height: 55%;
+    display: flex;
+    /* background-color: green; */
+    z-index: 3;
+}
+.pump-body-img,.pump-body-img-tail{
+    max-height: 100%;
+    max-width: 100%;
+}
+.pump-body-img-tail{
+    position: relative;
+    left:20%;
+    bottom: 5%;
+    /* background-color: blue; */
+}
+
+/* animations for pump */
+.push{
+    animation: push 1s ease-in-out 0s 1;
+}
+
+@keyframes push {
+    0%{
+        top:40%;
+    }
+    50%{
+        top:70%;
+    }
+    100%{
+        top:40%;
+    }
+}
+
+.squish{
+    animation: squish 1s ease-in-out 0s 1;
+}
+
+@keyframes squish {
+    0%{
+        
+        max-height: 100%;
+        aspect-ratio: 1;
+    }
+    50%{
+        margin-top: 1%;
+        transform: scaleX(1.1);
+    }
+    100%{
+        max-height: 100%;
+        aspect-ratio: 1;
+    } 
+}
+
+.taileffect{
+    animation: taileffect 1s ease-in-out 0s 1;
+}
+
+@keyframes taileffect {
+    0%{
+        translate: 0% 0%;
+    }
+    50%{
+        translate: -1.5% 0%;
+    }
+    100%{
+        translate: 0% 0%;
+    } 
+}
+
+
+/* for balloon */
+
+.balloons-container{
+    width: 75%;
+    height: 100vh;
+}
+
+.old-balloon{
+    position: absolute;
+    top: 55%;
+    left:75%;
+    height: 20%;
+    width: 7%;
+    /* background-color: green; */
+}
+
+
+
+.new-balloon{
+    position: absolute;
+    /* I need to change this bottom right values  responsively*/
+    
+    /* change height 10 15 20 */
+    height: 0%;
+    transition: all 1s ease-in-out;
+    width: 7%;
+    /* background-color: green; */
+}
+
+.base-0{
+    animation: build 1s ease-in-out 0s 1;
+    height: 10%;
+}
+
+@keyframes build {
+    0%{
+        height: 0%;
+    }
+    100%{
+        height: 10%;
+    }
+}
+
+.base-1{
+    height: 15%;
+}
+
+.base-2{
+    height: 20%;
+}
+
+.base-3{
+    height: 20%;
+}
+
+.balloon-container{
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    margin-right: -50%;
+    height: 100%;
+    transform: translate(-50%,0%);
+    /* background-color: blue; */
+}
+
+.balloon-img-b{
+    /* background-color: white; */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    max-height: 100%;
+    aspect-ratio: 1;  
+    margin-right: -50%;
+    transform: translate(-50%,-50%);
+}
+
+.balloon-img-a{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    max-height: 80%;
+    aspect-ratio: 1;
+    margin-right: -50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+}
+
+.balloon-img-c{
+    position: absolute;
+    top:95%;
+    left: 50%;
+    max-height: 80%;
+    aspect-ratio: 1;
+    margin-right: -50%;
+    transform: translate(-50%,-50%);
+}
+
+.burst
+{
+    animation: burst 0.5s ease-in 0s 1;
+}
+
+@keyframes burst {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+
+/* titles */
+
+.score{
+    position: absolute;
+    top: 1%;
+    left: 80%;
+    font-size: xx-large;
+}
+
+.timer{
+    display: flex;
+    color: red;
+}
+
+.present_score{
+    display: flex;
+}
+
+.HighScore{
+    display: flex;
+    color: burlywood;
+}
+
+
+
+
+
+
+
+
+
