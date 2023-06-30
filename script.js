@@ -1,10 +1,26 @@
 let gameContainer = document.querySelector(".game-container");
+
 let pumpHandle = document.querySelector(".pump-handle-img");
 let pumpBody = document.querySelector(".pump-body-img");
 let pumpTail = document.querySelector(".pump-body-img-tail");
-let balloonContainer = document.querySelector(".balloons-container");
 let isPumping = false;
+
+let balloonContainer = document.querySelector(".balloons-container");
 let count = 0;
+
+let positions = [
+    { top: 55, left: 75 },
+    { top: 35, left: 70 },
+    { top: 25, left: 65 },
+    { top: 17, left: 55 },
+    { top: 13, left: 35 },
+    { top: 9, left: 25 },
+    { top: 5, left: 5 },
+    { top: -10, left: -10 },
+];
+
+
+// for find Score
 
 let timer = document.querySelector(".timer").lastElementChild;
 let score = document.querySelector(".present_score").lastElementChild;
@@ -36,27 +52,14 @@ let Score = () => {
             highscore.innerHTML = Math.max(parseInt(score.innerHTML), parseInt(highscore.innerHTML)).toString();
             localStorage.setItem("highScore", highscore.innerHTML);
             location.reload();
-
         }
         else {
             setTimeout(Score, 1000);
-
         }
     }
 }
 
 Score();
-
-let positions = [
-    { top: 55, left: 75 },
-    { top: 35, left: 70 },
-    { top: 25, left: 65 },
-    { top: 17, left: 55 },
-    { top: 13, left: 35 },
-    { top: 9, left: 25 },
-    { top: 5, left: 5 },
-    { top: -10, left: -10 },
-];
 
 
 let calculateBalloonContainerPosition = (count) => {
@@ -90,6 +93,7 @@ let calculateBalloonContainerPosition = (count) => {
 
 let buildBalloon = () => {
     if (count == 0) {
+
         let c = "100";
         let d = "1000";
         let a = Math.floor((Math.random() * 26));
@@ -112,7 +116,10 @@ let buildBalloon = () => {
         let intersectingPoint = calculateBalloonContainerPosition(count);
 
         let div = document.createElement("div");
-        div.className = "new-balloon base-0";
+        div.className = "new-balloon";
+        setTimeout(() => {
+            div.classList.add("base-0");
+        }, 10);
         div.innerHTML = `<div class="balloon-container" >
         <img  class="balloon-img-a"  src="./Graphics/alphabets/Symbol ${c}.png" alt="alphabet">
         <img class="balloon-img-b" src="./Graphics/ballons/Symbol ${d}.png" alt="balloon">
@@ -165,7 +172,6 @@ let buildBalloon = () => {
 
 
 let pumpBalloon = () => {
-    // event.preventDefault();
     if (!isPumping) {
         isPumping = true;
         pumpHandle?.classList?.add("push");
